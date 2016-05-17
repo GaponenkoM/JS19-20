@@ -1,0 +1,573 @@
+@import "_reset.scss", "_smart-gallery.scss";
+
+$color-box: #2a2d32;
+$primary-color: #248cec;
+$primary-color-main: #f4b60d;
+$main-font: Arial, San-Serif;
+$sprites-path: url("../img/sprites.png");
+@mixin clearfix{
+	&:after{
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+}
+@mixin block($bg){
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	font-family: $main-font;
+	background-color: $bg;
+}	
+@mixin sprites($url, $x, $y){
+	background: $url $x $y no-repeat;
+}
+@mixin link-title ($cl, $fsz){        
+	display: block;
+	font-weight: 600;
+	text-decoration: none;
+	color: $cl;
+	font-size: $fsz;
+}
+
+	 /*******MAIN PAGE*******/
+		/*WRAPPER*/ 
+.wrapper{
+	width: 1160px;
+	margin: 0 auto;
+	position: relative;
+}
+
+	/*HEADER*/
+header{
+	@include block(#fff);       
+	padding: 30px 0;
+	&{
+		@include clearfix;
+	}
+	.logo{
+		display: block;
+		position: relative;
+		float: left;
+		width: 20%;
+		top: -2px;
+		left: 3px;
+	}	
+	.social-icons{
+		position: relative;
+		overflow: hidden;
+		width: 80%;
+		text-align: right;
+		padding: 8px 0;
+		&__item{
+			display: inline-block;
+			margin-right: 10px;
+		}
+			&__links{
+				display: block;
+				height: 18px;
+				width: 17px;
+			}
+			&__facebook{
+				@include sprites($sprites-path, 0px, -17px);
+				&:hover{
+					background-position: 0px 0px;
+				}
+			}	
+			&__twitter{
+				@include sprites($sprites-path, -17px, -17px);
+				&:hover{
+					background-position: -17px 0px;
+				}
+			}
+			&__rss{
+				@include sprites($sprites-path, -34px, -17px);
+				&:hover{
+					background-position: -34px 0px;
+				}
+			}
+			&__linkedin{
+				@include sprites($sprites-path, -51px, -17px);
+				&:hover{
+					background-position: -51px 0px;
+				}
+			}
+			&__skype{
+				@include sprites($sprites-path, -68px, -17px);
+				&:hover{
+					background-position: -68px 0px;
+				}
+			}	
+	}	
+}
+
+	/*PAGE-NAVIGATION*/
+.navigation{
+	@include block($color-box);
+	min-height: 56px;
+    border-color: $color-box;	
+	&{
+		@include clearfix;
+	}
+	.page-navigation{
+		&__item{
+			float: left;
+			border-right: 1px solid #000;
+		}
+		&__item--blue{
+			width: 112px;
+			background-color: $primary-color;
+		}
+		&__item--2{
+			width: 125px;
+		}
+		&__item--3{
+			width: 129px;
+		}
+		&__item--4{
+			width: 107px;
+		}
+		&__item--5{
+			width: 109px;
+		}
+			&__link{
+				@include link-title(#fff, 12px);
+				line-height: 56px;
+				text-align: center;
+				font-family: $main-font;
+				&:hover{
+					color: $primary-color-main;
+				}
+			}
+	}	
+	.search{
+		float: right;
+		position: relative;
+		left: -10px;
+		padding: 8px 0;
+		&__settings{
+			width: 240px;
+			height: 40px;
+			padding: 5px 15px 5px 10px; 
+			border: 1px solid #000;
+			background: #35383c;
+			outline: none;
+			box-sizing: border-box;
+			color: #fff;
+			font-size: 12px;
+		}	
+		&__img{
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 44px;
+			height: 100%;
+			cursor: pointer;
+			opacity: 0.3;
+			background: url("../img/search.png") 50% no-repeat;
+			border: none;
+			outline: 0;
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+	}
+}	
+
+	/*SLIDER*/
+.slider{
+	width: 100%;
+	position: relative;
+	&{
+		@include clearfix;
+	}
+	&__logo{
+		position: absolute;
+		top: 235px;
+		left: 35px;
+		z-index: 150;
+		opacity: 0.9;
+	}
+}
+
+	/*CONTENT*/
+.content{
+	@include block(#fff);
+	margin: 65px 0 0 0;
+	&{
+		@include clearfix;
+	}
+	.content-read{
+		&__number{
+			float: left;
+			width: 8%;    
+			margin-right: 32px;
+			color: #e9e9ea;
+			text-align: center;
+			font-weight: 600;
+			font-size: 85px;
+		}
+		&__article-1,
+		&__article-2{
+			float: left;
+			width: 23.33%;
+		}
+		&__article-3{
+			@extend .content-read__article-2;
+			position: relative;
+			top: -85px;
+			left: 129px;
+		}
+		&__picture{
+			float: left;
+			margin-right: 202px;
+		}
+		
+		&__link{
+			display: block;
+			height: 33px;
+			width: 33px;
+			margin: 8px 0 15px 0;
+		}
+		&__link--1{
+			@include sprites($sprites-path, 0px, -34px);
+		}
+		&__link--2{
+			@include sprites($sprites-path, -31px, -35px);
+		}
+		&__link--3{
+			@include sprites($sprites-path, -65px, -36px);
+		}
+		&__title{
+			@include link-title(#2a2d32, 18px);
+		}
+		&__text{
+			margin: 20px 0;
+			font-size: 14px;
+			line-height: 20px;
+			overflow: hidden;
+			height: 60px;
+		}
+		&__refer{
+			@include link-title(#2a2d32, 14px);
+			background: url("../img/sprites-arrow.png") -12px 2px no-repeat;
+			&:hover{
+				color: $primary-color;
+				background: url("../img/sprites-arrow.png") -12px -16px no-repeat;
+			}
+		}
+	}
+}
+
+	/*MAIN*/
+.main{
+	@include block($color-box);
+	min-height: 500px;
+	&{
+		@include clearfix;
+	}
+	&__title{
+		@include link-title(#fff, 23px);
+		padding: 46px 0 54px 0;
+	}
+	&__figure-link{
+		@include link-title(#fff, 16px);
+		padding: 0 0;
+		float: left;
+		width: 22.5%;
+		margin-right: 39px;
+		background: none;
+		text-align: center;
+		&:hover{
+			color: $primary-color-main;
+		}
+	}
+	&__figure-link--4{
+		margin-right: -1px;
+	}
+	.main__services{
+		position: relative;
+	}	
+	.main__services:before{
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		width: 261px;
+		height: 260px;
+		line-height: 260px;
+		background-color: #248cec;
+		content: "+";
+		text-align:center;
+		font-size: 90px;
+		opacity: 0;
+		transition: all 0.5s;	
+		font-weight: 200;
+	}
+	.main__services:hover:before {
+		opacity: 0.8;
+		color: #fff;
+	}
+	.main__services--3{
+		margin-right: -1px;
+	}
+		.main__img{
+			height: 260px;
+			width: 260px;
+		}
+		.main__figcaption{
+			padding-top: 30px;
+			padding-bottom: 68px;
+			text-align: center;
+		}
+}
+
+	/*INFO*/
+.info{
+	@include block(#f7f7f7);
+	min-height: 543px;
+	&{
+		@include clearfix;
+	}
+	&__text{
+		@include link-title(#2a2d32, 24px);
+		width: 50%;
+		float: left;
+		padding: 60px 0 46px 0;
+	}
+	&__text--banners{
+		width: 48%;
+		padding-left: 18px;
+	}
+	&__news{
+		width: 16%;
+		float: left;
+		position: relative;
+		&-img{
+			display: block;
+			padding: 0 25px 30px 0;
+			position: relative;
+		}
+		&-date-1{
+			display: block;
+			position: absolute;
+			top: 12px;
+			left: -18px;
+		}
+		&-date-2{
+			display: block;
+			position: absolute;
+			top: 193px;
+			left: -18px;
+		}
+	}
+	.info__descriptions{
+		width: 33%;
+		float: left;
+		margin-right: 10px;
+		&-link-1{
+			@include link-title(#2a2d32, 15px);
+			margin: 4px 0 10px 0;
+			&:hover{
+				color: $primary-color;
+			}
+		}
+		&-link-2{
+			@extend .info__descriptions-link-1;
+			margin: 37px 0 10px 0;
+		}
+		&-paragraf{
+			margin: 3px 0 15px 0;
+			font-size: 13px;
+			line-height: 20px;
+		}
+		&-comments{
+			color: $primary-color;
+		}
+		&-text{
+			margin: 3px 0 15px 0;
+			font-size: 13px;
+			line-height: 20px;
+		}
+	}
+	
+	/*ACCORDION PANEL*/
+	.info__accordion{
+		width: 50%;
+		height: 38px;
+		padding-left: 21px;
+		float: left;
+		box-sizing: border-box;
+		cursor: pointer;
+		&-title{
+			margin-bottom: 4px;
+			color: #2a2d32;
+			background-color: #fff; 
+			font-weight: 600;
+			line-height: 35px;
+			border: 1px solid #e8e8e8;
+			font-size: 12px;
+			&:before{
+				content: "+"; 
+				text-align: center;
+				padding: 6px 13px 10px 13px;
+				margin-right: 13px;
+				border-right: 1px solid #e8e8e8;
+				font-size: 20px;
+			}
+		}	
+		&-title-active{
+			color: #fff;
+			background-color: $primary-color-main; 
+			border: 1px solid $primary-color-main;
+			font-size: 12px;
+			&:before {  
+				content: "-";
+				padding: 6px 16px 10px 14px;
+				margin-right: 15px;
+				border-right: 1px solid #f6c53d;
+				font-size: 20px;
+			}
+		}
+		&-text{
+			height: 96px;
+			margin: 23px 0 43px 38px;
+			overflow: hidden;
+			line-height: 20px;
+			font-size: 13px;
+		}
+	}
+}
+
+	/*BRANDS-BOX*/
+.brands-box{
+	@include block(#fff);
+	height: 240px;
+	box-sizing: border-box;
+	&{
+		@include clearfix;
+	}
+	&__list{
+		overflow: hidden;
+		margin: 85px 0;
+	}
+	&__item{
+		float: left;
+		width: 15%;
+		text-align: center;
+		&--1{
+			margin: 0 -17px;
+		}
+		&--2{
+			margin: 0 33px;
+		}
+		&--3{
+			margin: 0 15px;
+		}
+		&--4{
+			margin: 2px 28px;
+		}
+		&--5{
+			margin: 2px 0;
+		}
+		&--6{
+			margin: 0 -1px;
+		}
+	}	
+}
+
+	/*ABOUT COMPANY*/
+.about-company{
+	@include block($color-box);
+	height: 325px;
+	box-sizing: border-box;
+	&{
+		@include clearfix;
+	}	
+	&__box{
+		float: left;
+		width: 22.5%;
+		margin-right: 39px;
+		.about-company__title{
+			@include link-title(#fff, 16px);
+			padding: 62px 0px 32px 0;
+		}
+			.about-company__link{
+				@include link-title(#828385, 13px);
+				height: 35px;
+				border-bottom: 1px solid #393c40;
+				line-height: 35px;
+				&:hover{
+					color: $primary-color;
+				}
+			}
+			.about-company__link-last{
+				border-bottom: none;
+			}
+	}
+	&__box--4{
+		margin-right: -1px;
+	}
+}
+
+	/*FOOTER*/
+.footer{
+	@include block(lighten($color-box,5%));
+	height: 60px;
+	box-sizing: border-box;
+	color: #828385;
+	font-size: 12px;
+	&__item{
+		float: left;
+		line-height: 60px;
+	}
+	&__icon{
+		position: relative;
+		opacity: 0.4;
+		height: 20px;
+		top: 19px;
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+	&__icon-1{
+		width: 15px;
+		@include sprites ($sprites-path, 1px, -70px);
+	}	
+	&__icon-2{
+		width: 23px;
+		@include sprites ($sprites-path, -12px, -70px);
+	}
+	&__icon-3{
+		width: 23px;
+		top: 20px;
+		@include sprites ($sprites-path, -29px, -68px);
+	}
+	&__text-1{
+		position: relative;
+		left: 10px;
+		width: 280px;
+		margin-right: 27px;
+	}
+	&__text-2{
+		position: relative;
+		left: 5px;
+		width: 134px;
+	}
+	&__text-3{
+		position: relative;
+		left: 10px;
+		width: 134px;
+		margin-right: 13px;
+	}
+	&__text-4{
+		text-align: right;
+		width: 510px;
+	}
+	&__link{
+		text-decoration: none;
+		color: #828385;
+		font-weight: 600;
+	}
+}
